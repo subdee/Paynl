@@ -68,6 +68,9 @@ Paynl.prototype = {
 
     // Normalize input, and extract the command-parts.
     parts = method.replace(/(^\/|\/$)/g, '').split('/');
+    
+    //Pass the IP address for all calls
+    params.ipAddress = ip.address();
 
     // Create the deferred instance
     deferred = Q.defer();
