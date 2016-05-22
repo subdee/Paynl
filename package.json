@@ -1,5 +1,5 @@
 {
-  "name": "paynl",
+  "name": "spaynl",
   "version": "0.0.1",
   "description": "A pay.nl API convenience layer for nodeJS.",
   "main": "index.js",
