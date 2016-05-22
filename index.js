@@ -14,8 +14,6 @@ var ip            = require('ip')
   , extend        = require('extend')
   , url           = require('url')
   , request       = require('request')
-  , crypto        = require('crypto')
-  , shasum        = crypto.createHash('sha1')
   , handshake     = false
   , handshakeTime = 0;
 
@@ -184,7 +182,7 @@ Paynl.prototype = {
         version = 'v2';
         params  = {
           accountId: config.accountId,
-          token    : shasum.update(config.token + Math.floor(now / 1000), 'utf8').digest('hex')
+          token    : require('crypto').createHash('sha1').update(config.token + Math.floor(now / 1000), 'utf8').digest('hex')
         };
       } else if (config.username && config.password && config.companyId) {
         method  = 'login';
